@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author liuzheyu
+ * @author LiuZheYu, Vincent Chen
  *
  */
 package gradeSystemProject;
