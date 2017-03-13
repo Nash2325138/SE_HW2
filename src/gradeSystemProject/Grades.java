@@ -3,12 +3,13 @@ import java.util.*;
 
 public class Grades {
 	public String ID, name;
-	public Vector<Integer> grades;
+	public Vector<Integer> grades = new Vector<Integer>();
 	public Grades(String rawInput) {
 		String[] inputs = rawInput.split(" ");
+//		System.out.println(Arrays.toString(inputs));
 		this.ID = inputs[0];
 		this.name = inputs[1];
-		for (int i=2; i<7; i++) {
+		for (int i=2; i<inputs.length; i++) {
 			this.grades.add(Integer.parseInt(inputs[i]));
 		}
 		assert(this.grades.size() == 5);
@@ -16,10 +17,10 @@ public class Grades {
 	/*
 	 * Calculate the weighted total grade
 	 */
-	public float calculateTotalGrade(Vector<Float> weights) {
+	public float calculateTotalGrade(float[] weights) {
 		float ret = 0;
 		for (int i=0; i<grades.size(); i++) {
-			ret += weights.get(i) * grades.get(i);
+			ret += weights[i] * grades.get(i);
 		}
 		return ret / 100;
 	}
