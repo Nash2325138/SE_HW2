@@ -10,7 +10,13 @@ public class Grades {
 		this.ID = inputs[0];
 		this.name = inputs[1];
 		for (int i=2; i<inputs.length; i++) {
-			this.grades.add(Integer.parseInt(inputs[i]));
+			try {
+				this.grades.add(Integer.parseInt(inputs[i]));
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				System.out.println(rawInput);
+			}
+			
 		}
 		assert(this.grades.size() == 5);
 	}
