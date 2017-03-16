@@ -61,4 +61,7 @@ public class GradeSystems {
 	public String getName(String ID) {
 		return IDtoGrades.get(ID).name;
 	}
+	public String[] getExamNames() {
+		return examNames;
+	}
 }
