@@ -85,12 +85,21 @@ public class UI {
 		} else if (command.equals("R")) {
 			aGradeSystems.showRank(queryingID);
 		} else if (command.equals("A")) {
-			// TODO: show class average
+			showAverage();
 		} else if (command.equals("W")) {
 			promptUpdateWeight();
 		} else {
 			System.out.println("No such command");
 		}
+	 }
+	 void showAverage() {
+		 System.out.println("The average scores are listed below");
+		 String[] examNames = aGradeSystems.getExamNames();
+		 float[] averages = aGradeSystems.getAverages();
+		 for (int i = 0; i < examNames.length; i++) {
+			System.out.println("\t" + examNames[i] + ": " + averages[i]);
+		}
+		 System.out.println();
 	 }
 	 void promptUpdateWeight() {
 		 String[] examNames = aGradeSystems.getExamNames();

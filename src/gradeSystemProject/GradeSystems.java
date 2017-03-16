@@ -8,7 +8,8 @@ import java.util.*;
 public class GradeSystems {
 	private Vector<Grades> gradesCollection = new Vector<Grades>();
 	private TreeMap<String, Grades> IDtoGrades = new TreeMap<String, Grades>();
-	private float[] weights; 
+	private float[] weights;
+	private float[] averages;
 	private String[] examNames = {"Lab1", "Lab2", "Lab3", "Midterm", "Final Exam"};
 	public GradeSystems () {
 		try {
@@ -56,12 +57,30 @@ public class GradeSystems {
 		for (int i = 0; i < grades.size(); i++) {
 			System.out.println("\t" + examNames[i] + ": " + grades.get(i));
 		}
-		System.out.println("\tWeighted grade: " + someone.calculateTotalGrade(weights));
+		System.out.println("\tWeighted grade: " + someone.calculateTotalGrade(weights) + "\n");
 	}
 	public String getName(String ID) {
 		return IDtoGrades.get(ID).name;
 	}
 	public String[] getExamNames() {
 		return examNames;
+	}
+	public float[] getAverages() {
+		if (averages == null) {
+			int len = gradesCollection.get(0).grades.size();
+			int size = gradesCollection.size();
+			float[] sum = new float[size];
+			for (Iterator<Grades> iterator = gradesCollection.iterator(); iterator.hasNext();) {
+				Grades grades = (Grades) iterator.next();
+				for (int i = 0; i < len; i++) {
+					sum[i] += grades.grades.get(i);
+				}
+			}
+			averages = new float[len];
+			for (int i = 0; i < len; i++) {
+				averages[i] = sum[i]/size;
+			}
+		}
+		return averages;
 	}
 }
