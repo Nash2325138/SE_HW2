@@ -1,12 +1,9 @@
 package gradeSystemProject;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.util.*;
-import java.util.jar.Attributes.Name;
 
 public class GradeSystems {
 	private Vector<Grades> gradesCollection = new Vector<Grades>();
@@ -60,5 +57,8 @@ public class GradeSystems {
 			System.out.println("\t" + examNames[i] + ": " + grades.get(i));
 		}
 		System.out.println("\tWeighted grade: " + someone.calculateTotalGrade(weights));
+	}
+	public String getName(String ID) {
+		return IDtoGrades.get(ID).name;
 	}
 }
