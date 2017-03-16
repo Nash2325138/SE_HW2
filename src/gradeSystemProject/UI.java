@@ -22,6 +22,7 @@ public class UI {
 				 continue;
 			 }
 			 showWelcomeMsg();
+			 while (promptCommand());
 		 }
 	 }
 	 /*
@@ -59,7 +60,31 @@ public class UI {
 	  * return false when a 'exit' command is found
 	  */
 	 boolean promptCommand() {
-		return false; 
+		System.out.println("Please enter a command");
+		System.out.println("\tG: Show your grades");
+		System.out.println("\tR: Show your rank");
+		System.out.println("\tA: Show class average");
+		System.out.println("\tW: Update weights");
+		System.out.println("\tE: Exit");
+		String command = scanner.next();
+		if (command.equals("E")) {
+			return false;
+		}
+		executeCommand(command);
+		return true; 
+	 }
+	 void executeCommand(String command) {
+		 if (command.equals("G")) {
+			aGradeSystems.showGrade(queryingID);
+		} else if (command.equals("R")) {
+			aGradeSystems.showGrade(queryingID);
+		} else if (command.equals("A")) {
+			// TODO: show class average
+		} else if (command.equals("W")) {
+			// TODO: prompt update wights
+		} else {
+			System.out.println("No such command");
+		}
 	 }
 	 
 }
