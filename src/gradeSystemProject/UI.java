@@ -26,12 +26,15 @@ public class UI {
 			 while (promptCommand());
 			 showFinishMsg();
 		 }
+		 System.out.println("Thanks for using grade system!!");
 	 }
+	 
+
 	 /*
 	  * prompt ID, when getting a "Q" -> false 
 	  * else -> true
 	  */
-	 boolean promptID() {
+	 private boolean promptID() {
 		 System.out.println("Please enter your ID or enter \"Q\" or \"q\" to quit");
 		 String input = scanner.nextLine();
 		 if (input.equals("Q") || input.equals("q")) {
@@ -41,15 +44,15 @@ public class UI {
 			 return true;
 		 }
 	 }
-	 void showWelcomeMsg() {
+	 private void showWelcomeMsg() {
 		 System.out.println("Welcome, " + aGradeSystems.getName(queryingID));
 		 printTxtFile("welcome.txt");
 	 }
-	 void showFinishMsg() {
+	 private void showFinishMsg() {
 		 System.out.println("Goodbye, " + aGradeSystems.getName(queryingID));
 		 printTxtFile("finish.txt");
 	 }
-	 void printTxtFile(String txt) {
+	 private void printTxtFile(String txt) {
 		 try (BufferedReader br = new BufferedReader(new FileReader(txt))) {
 			 String line = null;
 			 while ((line = br.readLine()) != null) {
@@ -65,7 +68,7 @@ public class UI {
 	  * prompt command and execute certain function using aGradeSystems
 	  * return false when a 'exit' command is found
 	  */
-	 boolean promptCommand() {
+	 private boolean promptCommand() {
 		System.out.println("Please enter a command");
 		System.out.println("\tG: Show your grades");
 		System.out.println("\tR: Show your rank");
@@ -79,7 +82,7 @@ public class UI {
 		executeCommand(command);
 		return true; 
 	 }
-	 void executeCommand(String command) {
+	 private void executeCommand(String command) {
 		 if (command.equals("G")) {
 			aGradeSystems.showGrade(queryingID);
 		} else if (command.equals("R")) {
@@ -92,7 +95,7 @@ public class UI {
 			System.out.println("No such command");
 		}
 	 }
-	 void showAverage() {
+	 private void showAverage() {
 		 System.out.println("The average scores are listed below");
 		 String[] examNames = aGradeSystems.getExamNames();
 		 float[] averages = aGradeSystems.getAverages();
@@ -101,7 +104,7 @@ public class UI {
 		}
 		 System.out.println();
 	 }
-	 void promptUpdateWeight() {
+	 private void promptUpdateWeight() {
 		 String[] examNames = aGradeSystems.getExamNames();
 		 float[] new_weights = new float[examNames.length];
 		 float sum = 0;
@@ -119,6 +122,7 @@ public class UI {
 				continue;
 			}
 		 }
+		 scanner.nextLine();
 		 if (Math.abs(sum-100.) < 0.0001) {
 			 aGradeSystems.updateWeights(new_weights);
 		 } else {

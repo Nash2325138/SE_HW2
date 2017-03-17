@@ -39,9 +39,12 @@ public class GradeSystems {
 	}
 	public void showRank(String ID) {
 		int rank = getRank(ID);
-		if(rank == -1) return;
+		if(rank == -1){
+			System.out.println("No such ID!!");
+			return;
+		}
 		Grades grades = IDtoGrades.get(ID);
-		System.out.println(grades.name + "'s rank is " + rank);
+		System.out.println(grades.name + "'s rank is " + rank + "\n");
 	}
 	private int getRank(String ID) {
 		if(IDtoGrades.containsKey(ID)==false) return -1;
@@ -53,7 +56,10 @@ public class GradeSystems {
 		return rank;
 	}
 	public void showGrade(String ID) {
-		if(IDtoGrades.containsKey(ID)==false) return;
+		if(IDtoGrades.containsKey(ID)==false){
+			System.out.println("No such ID!!");
+			return;
+		}
 		Grades someone = IDtoGrades.get(ID);
 		Vector<Integer> grades = someone.grades;
 		System.out.println(someone.name + "'s scores are:");
