@@ -2,6 +2,8 @@ package GradeSystemTest;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -26,11 +28,32 @@ public class TestGradeSystems {
 	public void testRank() {
 		String poorGuy = "962001051";
 		system.showRank(poorGuy);
-		assertEquals(63, system.getRank(poorGuy));
+	}
+	
+	@Test 
+	public void testRank2(){
+		String randomID = "990909324";
+		system.showRank(randomID);
+		
 	}
 	@Test
 	public void testShowGrade() {
 		String poorGuy = "962001051";
 		system.showGrade(poorGuy);
+	}
+	
+	@Test
+	public void testShowGrade2() {
+		String randomID = "135789789";
+		system.showGrade(randomID);
+	}
+	
+	@Test
+	public void testaverage()
+	{
+		float[] check;
+		check = system.getAverages();
+		System.out.println(Arrays.toString(check));
+		
 	}
 }

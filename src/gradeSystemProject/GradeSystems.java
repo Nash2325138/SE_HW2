@@ -39,10 +39,12 @@ public class GradeSystems {
 	}
 	public void showRank(String ID) {
 		int rank = getRank(ID);
+		if(rank == -1) return;
 		Grades grades = IDtoGrades.get(ID);
 		System.out.println(grades.name + "'s rank is " + rank);
 	}
-	public int getRank(String ID) {
+	private int getRank(String ID) {
+		if(IDtoGrades.containsKey(ID)==false) return -1;
 		int rank = 1;
 		float myScore = IDtoGrades.get(ID).calculateTotalGrade(weights);
 		for (Grades grades : gradesCollection) {
@@ -51,6 +53,7 @@ public class GradeSystems {
 		return rank;
 	}
 	public void showGrade(String ID) {
+		if(IDtoGrades.containsKey(ID)==false) return;
 		Grades someone = IDtoGrades.get(ID);
 		Vector<Integer> grades = someone.grades;
 		System.out.println(someone.name + "'s scores are:");
