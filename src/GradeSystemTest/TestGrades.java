@@ -6,15 +6,16 @@ import org.junit.*;
 import org.omg.CORBA.INITIALIZE;
 
 import gradeSystemProject.Grades;
-
+//Test of Grades class
 public class TestGrades {
 	Grades grades;
+	//set a rawInput for testcase
 	@Before
 	public void init() throws Exception{
 		String rawInput = "11111 Vincent 20 30 40 50 60";
 		grades = new Grades(rawInput);
 	}
-	
+	//Test calculate total grade with int result
 	@Test
 	public void testCorrect() {
 		float[] weights={20,20,20,20,20};
@@ -23,7 +24,7 @@ public class TestGrades {
 		//assertEquals(expected, actual, delta)
 		
 	}
-	
+	//Test calculate total grade with double result
 	@Test
 	public void testDouble(){
 		float[] weights={20,20,20,15,25};

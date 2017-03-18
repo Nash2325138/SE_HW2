@@ -9,10 +9,10 @@ import org.junit.Test;
 
 
 import gradeSystemProject.UI;
-
+//Test UI class
 public class TestUI {
 
-	
+	//Test to quit system immediately
 	@Test
 	public void test1() {
 		System.out.println("--------------test1--------------------");
@@ -23,6 +23,7 @@ public class TestUI {
 		
 	}
 	
+	//Test get into the system by ID then quit immediately
 	@Test
 	public void test2() {
 		System.out.println("--------------test2--------------------");
@@ -33,6 +34,7 @@ public class TestUI {
 		
 	}
 	
+	//Test get into the system by ID then show Grade, Rank, Average then quit
 	@Test
 	public void test3() {
 		System.out.println("--------------test3--------------------");
@@ -43,6 +45,7 @@ public class TestUI {
 		
 	}
 	
+	//Test get into the system by ID then update new weight, after that quit the system
 	@Test
 	public void test4() {
 		System.out.println("--------------test4--------------------");
@@ -53,6 +56,7 @@ public class TestUI {
 		
 	}
 	
+	//Test when update new weight with total not 100%
 	@Test
 	public void test5() {
 		System.out.println("--------------test5--------------------");
@@ -63,6 +67,7 @@ public class TestUI {
 		
 	}
 	
+	//Test trying to use error ID to get into the system
 	@Test
 	public void testErrorID() {
 		System.out.println("--------------testErrorID--------------------");
@@ -73,6 +78,7 @@ public class TestUI {
 		
 	}
 	
+	//Test try to input wrong command
 	@Test
 	public void testErrorCommand() {
 		System.out.println("--------------testErrorCommand--------------------");
