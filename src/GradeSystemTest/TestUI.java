@@ -54,6 +54,16 @@ public class TestUI {
 	}
 	
 	@Test
+	public void test5() {
+		System.out.println("--------------test5--------------------");
+		String testing="965002038\nW\n20\n20\n30\n20\n20\nE\nQ";
+		InputStream inputStream = new ByteArrayInputStream(testing.getBytes());
+		System.setIn(inputStream);
+		UI ui = new UI();
+		
+	}
+	
+	@Test
 	public void testErrorID() {
 		System.out.println("--------------testErrorID--------------------");
 		String testing="948794\nQ";
