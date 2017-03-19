@@ -20,7 +20,7 @@ public class TestUI {
 		InputStream inputStream = new ByteArrayInputStream(testing.getBytes());
 		System.setIn(inputStream);
 		UI ui = new UI();
-		
+		ui.run();
 	}
 	
 	//Test get into the system by ID then quit immediately
@@ -31,6 +31,7 @@ public class TestUI {
 		InputStream inputStream = new ByteArrayInputStream(testing.getBytes());
 		System.setIn(inputStream);
 		UI ui = new UI();
+		ui.run();
 		
 	}
 	
@@ -42,6 +43,7 @@ public class TestUI {
 		InputStream inputStream = new ByteArrayInputStream(testing.getBytes());
 		System.setIn(inputStream);
 		UI ui = new UI();
+		ui.run();
 		
 	}
 	
@@ -53,6 +55,7 @@ public class TestUI {
 		InputStream inputStream = new ByteArrayInputStream(testing.getBytes());
 		System.setIn(inputStream);
 		UI ui = new UI();
+		ui.run();
 		
 	}
 	
@@ -64,6 +67,7 @@ public class TestUI {
 		InputStream inputStream = new ByteArrayInputStream(testing.getBytes());
 		System.setIn(inputStream);
 		UI ui = new UI();
+		ui.run();
 		
 	}
 	
@@ -75,6 +79,7 @@ public class TestUI {
 		InputStream inputStream = new ByteArrayInputStream(testing.getBytes());
 		System.setIn(inputStream);
 		UI ui = new UI();
+		ui.run();
 		
 	}
 	
@@ -86,6 +91,7 @@ public class TestUI {
 		InputStream inputStream = new ByteArrayInputStream(testing.getBytes());
 		System.setIn(inputStream);
 		UI ui = new UI();
+		ui.run();
 		
 	}
 	
