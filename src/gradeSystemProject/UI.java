@@ -6,9 +6,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UI {
-	 GradeSystems aGradeSystems;
-	 Scanner scanner;
-	 String queryingID;
+	 private GradeSystems aGradeSystems;
+	 private Scanner scanner;
+	 private String queryingID;
 	 public UI() {
 		 aGradeSystems = new GradeSystems();
 		 scanner = new Scanner(System.in);
