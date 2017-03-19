@@ -119,12 +119,18 @@ public class UI {
 		 System.out.println();
 	 }
 	 /*
-	  * Prompt user to input the weights they want to update
+	  * Show old weights and prompt user to input the 
+	  * weights they want to update.
 	  */
 	 private void promptUpdateWeight() {
 		 String[] examNames = aGradeSystems.getExamNames();
-		 float[] new_weights = new float[examNames.length];
+		 float[] old_wrights = aGradeSystems.getWeights();
+		 System.out.println("Old weights");
+		 for (int i = 0; i < old_wrights.length; i++) {
+			 System.out.println("\t" + examNames[i] + ": " + old_wrights[i]);
+		}
 		 
+		 float[] new_weights = new float[examNames.length];
 		 System.out.println("Please enter the new weights below (in %)");
 		 float sum = getNewWeights_sumup(examNames, new_weights);
 		 
@@ -135,7 +141,8 @@ public class UI {
 		 }
 	 }
 	 /*
-	  * Get the weights input from user
+	  * Get the weights input from user, if the user input something
+	  * not float, ignore the thing and ask user to input again
 	  */
 	 private float getNewWeights_sumup(String[] examNames, float[] new_weights) {
 		 float sum = 0;

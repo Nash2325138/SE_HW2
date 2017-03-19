@@ -31,6 +31,9 @@ public class GradeSystems {
 		}
 		weights = new float[] {10,10,10,30,40};
 	}
+	public float[] getWeights() {
+		return weights;
+	}
 	public void updateWeights (float[] newWeights) {
 		weights = Arrays.copyOf(newWeights, newWeights.length);
 	}
