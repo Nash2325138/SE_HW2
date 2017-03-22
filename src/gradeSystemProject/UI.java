@@ -13,7 +13,7 @@ public class UI {
 		 aGradeSystems = new GradeSystems();
 		 scanner = new Scanner(System.in);
 	 }
-	 /*
+	 /**
 	  * The method that runs the UI to deal with the scenarios described in spec 
 	  */
 	 public void run() {
@@ -29,10 +29,12 @@ public class UI {
 		 System.out.println("Thanks for using grade system!!");		 
 	 }
 
-	 /*
+	 /**
 	  * Prompt ID, when getting a "Q" -> false 
 	  * Else -> true
+	  * @return
 	  */
+
 	 private boolean promptID() {
 		 System.out.println("Please enter your ID or enter \"Q\" or \"q\" to quit");
 		 String input = scanner.nextLine();
@@ -43,22 +45,23 @@ public class UI {
 			 return true;
 		 }
 	 }
-	 /*
+	 /**
 	  * Show welcome message with ascii art file
 	  */
 	 private void showWelcomeMsg() {
 		 System.out.println("Welcome, " + aGradeSystems.getName(queryingID));
 		 printTxtFile("welcome.txt");
 	 }
-	 /*
-	  * Show goodbye with ascii art file
-	  */
+	/**
+	 * Show goodbye with ascii art file
+	 */
 	 private void showFinishMsg() {
 		 System.out.println("Goodbye, " + aGradeSystems.getName(queryingID));
 		 printTxtFile("finish.txt");
 	 }
-	 /*
+	 /**
 	  * Print a entire txt file 
+	  * @param txt
 	  */
 	 private void printTxtFile(String txt) {
 		 try (BufferedReader br = new BufferedReader(new FileReader(txt))) {
@@ -71,11 +74,12 @@ public class UI {
 			 System.err.println("reading" + txt + "error");
 		 }
 	 }
-	 
-	 /*
+	 /**
 	  * Prompt command and execute certain function using aGradeSystems.
 	  * Return false when a 'exit' command is found.
+	  * @return
 	  */
+
 	 private boolean promptCommand() {
 		System.out.println("Please enter a command");
 		System.out.println("\tG: Show your grades");
@@ -90,8 +94,9 @@ public class UI {
 		executeCommand(command);
 		return true; 
 	 }
-	 /*
+	 /**
 	  * Execute the command read in promptCommand()
+	  * @param command
 	  */
 	 private void executeCommand(String command) {
 		 if (command.equals("G")) {
@@ -106,7 +111,7 @@ public class UI {
 			System.out.println("No such command");
 		}
 	 }
-	 /*
+	 /**
 	  * Get the average scores from system and show them on screen
 	  */
 	 private void showAverage() {
@@ -118,10 +123,11 @@ public class UI {
 		}
 		 System.out.println();
 	 }
-	 /*
+	 /**
 	  * Show old weights and prompt user to input the 
 	  * weights they want to update.
 	  */
+
 	 private void promptUpdateWeight() {
 		 String[] examNames = aGradeSystems.getExamNames();
 		 float[] old_wrights = aGradeSystems.getWeights();
@@ -140,10 +146,14 @@ public class UI {
 			 System.err.println("The sum of new weights is not 100%");
 		 }
 	 }
-	 /*
+	 /**
 	  * Get the weights input from user, if the user input something
 	  * not float, ignore the thing and ask user to input again
+	  * @param examNames
+	  * @param new_weights
+	  * @return
 	  */
+
 	 private float getNewWeights_sumup(String[] examNames, float[] new_weights) {
 		 float sum = 0;
 		 for (int i = 0; i < examNames.length; i++) {

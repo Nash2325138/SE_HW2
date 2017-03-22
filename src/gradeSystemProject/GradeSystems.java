@@ -11,10 +11,10 @@ public class GradeSystems {
 	private float[] weights;
 	private float[] averages;
 	private String[] examNames = {"Lab1", "Lab2", "Lab3", "Midterm", "Final Exam"};
-	/*
-	 * Read the file to build gradesCollection and IDtoGrades.
-	 * Initial the weights.
-	 */
+/**
+ *  Read the file to build gradesCollection and IDtoGrades.
+ *  Initial the weights.
+ */
 	public GradeSystems () {
 		try {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader("gradeinput.txt"));
@@ -37,27 +37,32 @@ public class GradeSystems {
 		}
 		weights = new float[] {10,10,10,30,40};
 	}
-	/*
-	 * Get function of weights
-	 */
+/**
+ * Get function of weights
+ * @return
+ */
 	public float[] getWeights() {
 		return weights;
 	}
-	/*
-	 * Replace the weights with new weights
-	 */
+/**
+ * Replace the weights with new weights
+ * @param newWeights
+ */
 	public void updateWeights (float[] newWeights) {
 		weights = Arrays.copyOf(newWeights, newWeights.length);
 	}
-	/*
-	 * return if the system has ID
-	 */
+/**
+ * return true if the system has ID
+ * @param ID
+ * @return
+ */
 	public boolean containsID(String ID) {
 		return IDtoGrades.containsKey(ID);
 	}
-	/*
-	 * Get the rank of the querying user and show it on screen
-	 */
+/**
+ * Get the rank of the querying user and show it on screen
+ * @param ID
+ */
 	public void showRank(String ID) {
 		int rank = getRank(ID);
 		if(rank == -1){
@@ -67,9 +72,11 @@ public class GradeSystems {
 		Grades grades = IDtoGrades.get(ID);
 		System.out.println(grades.name + "'s rank is " + rank + "\n");
 	}
-	/*
-	 * Calculate the rank of the querying user
-	 */
+/**
+ * Calculate the rank of the querying user
+ * @param ID
+ * @return
+ */
 	private int getRank(String ID) {
 		if(IDtoGrades.containsKey(ID)==false) return -1;
 		int rank = 1;
@@ -79,9 +86,10 @@ public class GradeSystems {
 		}
 		return rank;
 	}
-	/*
-	 * Show all grades and weighted grade of the querying user
-	 */
+/**
+ * Show all grades and weighted grade of the querying user
+ * @param ID
+ */
 	public void showGrade(String ID) {
 		if(IDtoGrades.containsKey(ID)==false){
 			System.out.println("No such ID!!");
@@ -95,24 +103,29 @@ public class GradeSystems {
 		}
 		System.out.println("\tWeighted grade: " + someone.calculateTotalGrade(weights) + "\n");
 	}
-	/*
-	 * Get function of the name of the querying user
-	 */
+/**
+ * Get function of the name of the querying user
+ * @param ID
+ * @return
+ */
 	public String getName(String ID) {
 		return IDtoGrades.get(ID).name;
 	}
-	/*
-	 * Get function of examNames;
-	 */
+/**
+ * Get function of examNames;
+ * @return
+ */
 	public String[] getExamNames() {
 		return examNames;
 	}
-	/*
+	/**
 	 * Calculate the average scores of all grades over entire class.
-	 * After the first time the function is called since gradeSystem's 
+	 * After the first time the function is called since gradeSystem's
 	 * construction, the result will be stored and won't be calculated
 	 * when this function is called again.
+	 * @return
 	 */
+
 	public float[] getAverages() {
 		if (averages == null) {
 			int len = gradesCollection.get(0).grades.size();

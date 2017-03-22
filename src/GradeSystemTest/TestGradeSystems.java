@@ -12,12 +12,15 @@ import org.junit.Test;
 
 import gradeSystemProject.GradeSystems;
 
-//Unit Test of GradeSystems class
+
 
 public class TestGradeSystems {
 	GradeSystems system;
 	
-	//new a GradeSystems class
+	/**
+	 * new a GradeSystems class
+	 * @throws Exception
+	 */
 	@Before
 	public void setUpBeforeClass() throws Exception {
 		system = new GradeSystems();
@@ -27,32 +30,42 @@ public class TestGradeSystems {
 	public void tearDownAfterClass() throws Exception {
 		system = null;
 	}
-	//test of showRank with correct ID
+	/**
+	 * Test of showRank with correct ID
+	 */
 	@Test
 	public void testRank() {
 		String poorGuy = "962001051";
 		system.showRank(poorGuy);
 	}
-	//test of showRank with wrong ID
+	/**
+	 * Test of showRank with wrong ID
+	 */
 	@Test 
 	public void testRank2(){
 		String randomID = "990909324";
 		system.showRank(randomID);
 		
 	}
-	//test of showGrade with correct ID
+	/**
+	 * Test of showGrade with correct ID
+	 */
 	@Test
 	public void testShowGrade() {
 		String poorGuy = "962001051";
 		system.showGrade(poorGuy);
 	}
-	//test of showGrade with wrong ID
+	/**
+	 * Test of showGrade with wrong ID
+	 */
 	@Test
 	public void testShowGrade2() {
 		String randomID = "135789789";
 		system.showGrade(randomID);
 	}
-	//test of getAverages
+	/**
+	 * Test of getAverages
+	 */
 	@Test
 	public void testaverage()
 	{

@@ -4,9 +4,10 @@ import java.util.*;
 public class Grades {
 	public String ID, name;
 	public Vector<Integer> grades = new Vector<Integer>();
-	/*
-	 * Read a line to construct a user's information
-	 */
+/**
+ * Read a line to construct a user's information
+ * @param rawInput
+ */
 	public Grades(String rawInput) {
 		String[] inputs = rawInput.split(" ");
 //		System.out.println(Arrays.toString(inputs));
@@ -22,9 +23,11 @@ public class Grades {
 			
 		}
 	}
-	/*
-	 * Calculate the weighted total grade
-	 */
+/**
+ * Calculate the weighted total grade
+ * @param weights
+ * @return
+ */
 	public float calculateTotalGrade(float[] weights) {
 		float ret = 0;
 		for (int i=0; i<grades.size(); i++) {
