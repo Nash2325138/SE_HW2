@@ -99,7 +99,12 @@ public class GradeSystems {
 		Vector<Integer> grades = someone.grades;
 		System.out.println(someone.name + "'s scores are:");
 		for (int i = 0; i < grades.size(); i++) {
-			System.out.println("\t" + examNames[i] + ": " + grades.get(i));
+			Integer grade = grades.get(i);
+			if (grade < 60) {
+				System.out.println("\t" + examNames[i] + ": " + grade + "*");
+			} else {
+				System.out.println("\t" + examNames[i] + ": " + grade);
+			}
 		}
 		System.out.println("\tWeighted grade: " + someone.calculateTotalGrade(weights) + "\n");
 	}
