@@ -15,6 +15,11 @@ public class UI {
 	 }
 	 /**
 	  * The method that runs the UI to deal with the scenarios described in spec 
+	  * 1. while (user dosn't exit)
+	  * 2.	  	if (test if ID not exist) continue;
+	  * 3.		show welcome
+	  * 4.	 	while (user command not exit);
+	  * 5.		show finish
 	  */
 	 public void run() {
 		 while (promptID() == true) {

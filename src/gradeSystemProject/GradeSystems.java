@@ -65,10 +65,6 @@ public class GradeSystems {
  */
 	public void showRank(String ID) {
 		int rank = getRank(ID);
-		if(rank == -1){
-			System.out.println("No such ID!!");
-			return;
-		}
 		Grades grades = IDtoGrades.get(ID);
 		System.out.println(grades.name + "'s rank is " + rank + "\n");
 	}
@@ -76,9 +72,10 @@ public class GradeSystems {
  * Calculate the rank of the querying user
  * @param ID
  * @return
+ * 1. Count how many people has higher weighted score
+ * 2. The number + 1 is the answer
  */
 	private int getRank(String ID) {
-		if(IDtoGrades.containsKey(ID)==false) return -1;
 		int rank = 1;
 		float myScore = IDtoGrades.get(ID).calculateTotalGrade(weights);
 		for (Grades grades : gradesCollection) {
@@ -89,12 +86,11 @@ public class GradeSystems {
 /**
  * Show all grades and weighted grade of the querying user
  * @param ID
+ * 1. for loop over 5 scores
+ * 2.	if (grade < 60) print grade with *
+ * 3.	else print grade
  */
 	public void showGrade(String ID) {
-		if(IDtoGrades.containsKey(ID)==false){
-			System.out.println("No such ID!!");
-			return;
-		}
 		Grades someone = IDtoGrades.get(ID);
 		Vector<Integer> grades = someone.grades;
 		System.out.println(someone.name + "'s scores are:");

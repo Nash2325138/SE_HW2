@@ -7,6 +7,10 @@ public class Grades {
 /**
  * Read a line to construct a user's information
  * @param rawInput
+ * 1. fill ID
+ * 2. fill name
+ * 3. for (i from 2 to column number):
+ * 4.	add each grade
  */
 	public Grades(String rawInput) {
 		String[] inputs = rawInput.split(" ");
@@ -27,6 +31,8 @@ public class Grades {
  * Calculate the weighted total grade
  * @param weights
  * @return
+ * 1. sum up all weights[i] * grades[i]
+ * 2. divide by 100
  */
 	public float calculateTotalGrade(float[] weights) {
 		float ret = 0;
